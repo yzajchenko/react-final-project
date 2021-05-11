@@ -3,7 +3,12 @@ import { withStyles, CardMedia, Typography } from "@material-ui/core";
 import { Box, Button } from "@material-ui/core";
 import styles from "./styles";
 
-const Product = ({ handleGoToProductDetails, product, classes }) => {
+const Product = ({
+  handleGoToProductDetails,
+  product,
+  classes,
+  handleAddToOrder
+}) => {
   return (
     <Box className={classes.product} item>
       <Box className={classes.productImg}>
@@ -17,7 +22,12 @@ const Product = ({ handleGoToProductDetails, product, classes }) => {
         {"$"}
       </Typography>
       <Box className={classes.handle}>
-        <Button className={classes.btn} variant="contained" color="primary">
+        <Button
+          className={classes.btn}
+          variant="contained"
+          color="primary"
+          onClick={handleAddToOrder}
+        >
           add cart
         </Button>
         <Button

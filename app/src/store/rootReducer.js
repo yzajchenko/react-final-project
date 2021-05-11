@@ -7,6 +7,7 @@ import signUp from "../pages/SingUpPage/reducers";
 import signIn from "../pages/SingInPage/reducers";
 import products from "../pages/ProductsPage/reducers";
 import productsDetails from "../pages/ProductsDetailsPage/reducers";
+import order from "../pages/BasketPage/reducers";
 
 const authBlackListedFields = createBlacklistFilter("signIn", [
   "isLoading",
@@ -16,7 +17,7 @@ const authBlackListedFields = createBlacklistFilter("signIn", [
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["signIn"],
+  whitelist: ["signIn", "order"],
   transform: [authBlackListedFields]
 };
 
@@ -24,7 +25,8 @@ const rootReducer = combineReducers({
   signUp,
   signIn,
   products,
-  productsDetails
+  productsDetails,
+  order
 });
 
 export default persistReducer(persistConfig, rootReducer);

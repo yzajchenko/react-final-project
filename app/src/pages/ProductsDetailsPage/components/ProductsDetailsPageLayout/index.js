@@ -1,6 +1,6 @@
 import React from "react";
 import { withStyles } from "@material-ui/core";
-import { Card, Box } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -9,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 
 import styles from "./styles";
 
-const ProductsDetailsPageLayout = ({ classes, products }) => {
+const ProductsDetailsPageLayout = ({ classes, products, handleAddToOrder }) => {
   const [age, setAge] = React.useState("");
   const handleChange = event => {
     setAge(event.target.value);
@@ -39,7 +39,11 @@ const ProductsDetailsPageLayout = ({ classes, products }) => {
         </CardContent>
       </Box>
       <CardActions className={classes.action}>
-        <Button variant="contained" color="primary">
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => handleAddToOrder(products)}
+        >
           ADD to Cart
         </Button>
       </CardActions>

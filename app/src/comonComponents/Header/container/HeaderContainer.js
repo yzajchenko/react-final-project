@@ -8,7 +8,8 @@ import { useSelector } from "react-redux";
 const HeaderContainer = () => {
   const dispatch = useDispatch();
   const { isAuth } = useSelector(state => state.signIn);
-  const [anchorEl, setAnchorEl] = useState(null);
+  const { itemList } = useSelector(state => state.order);
+  const [anchorEl, setAnchorEl] = useState(false);
 
   const handleMenu = useCallback(event => {
     setAnchorEl(event.currentTarget);
@@ -34,6 +35,7 @@ const HeaderContainer = () => {
       isAuth={isAuth}
       anchorEl={anchorEl}
       handleLogOut={handleLogOut}
+      itemList={itemList}
     />
   );
 };

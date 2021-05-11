@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { PRODUCTS_REQUEST } from "../actions";
+import { ADD_PRODUCT } from "../../BasketPage/actions";
 import ProductsPageLayout from "../components/ProductsPageLayout";
 import ROUTES from "../../../routes/routesNames";
 
@@ -30,12 +31,20 @@ const ProductsContainer = () => {
     [dispatch]
   );
 
+  const handleAddToOrder = useCallback(
+    product => {
+      dispatch(ADD_PRODUCT(product));
+    },
+    [dispatch]
+  );
+
   return (
     <ProductsPageLayout
       productsList={products}
       isLoading={isLoading}
       handleGoToProductDetails={handleGoToProductDetails}
       handleChangeToPage={event => handleChangeToPage(event)}
+      handleAddToOrder={product => handleAddToOrder(product)}
     />
   );
 };

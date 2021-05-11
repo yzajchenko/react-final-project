@@ -12,7 +12,8 @@ const ProductsPageLayout = ({
   productsList,
   handleGoToProductDetails,
   handleChangeToPage,
-  isLoading
+  isLoading,
+  handleAddToOrder
 }) => {
   return (
     <>
@@ -28,6 +29,9 @@ const ProductsPageLayout = ({
               key={product.id}
               handleGoToProductDetails={handleGoToProductDetails}
               product={product}
+              handleAddToOrder={() => {
+                handleAddToOrder(product);
+              }}
             />
           );
         })}

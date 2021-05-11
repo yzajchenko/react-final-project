@@ -22,9 +22,13 @@ const HeaderPageLayout = ({
   handleMenu,
   anchorEl,
   classes,
-  handleLogOut
+  handleLogOut,
+  itemList
 }) => {
   const open = Boolean(anchorEl);
+
+  const totalItem = itemList.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <>
       {isAuth && (
@@ -35,9 +39,13 @@ const HeaderPageLayout = ({
                 <img src={logo} width="auto" height="50px" />
               </Typography>
               <Box>
-                <IconButton color="inherit">
-                  <LocalGroceryStoreIcon></LocalGroceryStoreIcon>
-                </IconButton>
+                <Link to={ROUTES.BASKET_PAGE}>
+                  <IconButton className={classes.basket}>
+                    <Box className={classes.totalItem}>{totalItem}</Box>
+                    <LocalGroceryStoreIcon></LocalGroceryStoreIcon>
+                  </IconButton>
+                </Link>
+
                 <IconButton
                   aria-label="account of current user"
                   aria-controls="menu-appbar"

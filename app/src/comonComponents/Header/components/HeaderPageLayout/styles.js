@@ -4,6 +4,15 @@ const styles = () => ({
   },
   title: {
     flexGrow: 1
+  },
+  basket: {
+    color: "#fff",
+    position: "relative"
+  },
+  totalItem: {
+    position: "absolute",
+    fontSize: "14px",
+    top: "0px"
   }
 });
 
