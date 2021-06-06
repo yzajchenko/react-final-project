@@ -1,3 +1,3 @@
 import api from "../../../api/apiConfig";
 
-export const order = oder => api.get("/order");
+export const order = oder => api.post("/order", order);
